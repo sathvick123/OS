@@ -1,0 +1,27 @@
+Q1-Report
+
+In this question we need to print the contents of a pagetable.
+
+To do this we will write a function called vmprint which will take pagetable as an argument.
+Now we will go to defs.h file which is present in the kernel,and we will define the prototype of our function as void vmprint(pagetable_t)
+Where pagetable_t is defined datatype of our pagetable,Now we will go to the exec.c file in kernel and in the function exec we will add a statement function call vmprint(pagetable) to execute our programs kernel approaches exec function in this file.
+Now we will go to vm.c file in kernel where we implement our function vm.print,here we have to print pagetable entries.
+To do this we will take help of another function called helpvm to print these entries.
+We will implement this helpvm function recursively for all the child of page table entries as mentioned in the vm.c file.
+
+Q2-Report
+
+In this question our aim is to eliminate memory allocation from sbrk()
+
+To do this firstly we will go to the function sys_sbrk() in sysproc.c in kernel.
+In sys_sbrk() function growproc(n) is used to allocate memory of size n units.
+Now we will stop this allocation by removing growproc(n) function but we will change the size of memory since size is present in sz variable.
+Now we will just increment the sz variable by n but will not allocate the memory.
+
+Q3-Report
+
+In this question our aim is to allocate the memory in trap.c 
+
+Trap.c will find if there is an error in allocation of memory.
+Just before showing the error we will alocate the required memory in trap.c function which stops showing the error which is shown in the above question.
+
